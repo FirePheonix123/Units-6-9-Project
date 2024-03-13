@@ -1,5 +1,5 @@
-public class GameCode {
+public class GameCode extends GUI{
     public GameCode(){
-        GUI panel = new GUI();
+
     }
 }
