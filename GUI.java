@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 public class GUI extends JPanel{
+    private String winner = "-";
     private int player1Ships = 0;
     private int AIShips = 0;
     private JFrame frame = new JFrame("Battleship");
@@ -8,16 +9,14 @@ public class GUI extends JPanel{
     private JPanel textPanel = new JPanel();
     private JPanel boardPanel = new JPanel();
     public GUI(){
-        frame.setSize(1000, 1000);
+        frame.setSize(800, 870);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         textLabel.setFont(new Font("Arial", Font.BOLD, 25));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
-        textLabel.setText("Player 1: " + player1Ships);
-        textLabel.setHorizontalAlignment(JLabel.RIGHT);
-        textLabel.setText("AI: " + AIShips);
+        textLabel.setText("Winner: " + winner);
 
         textLabel.setOpaque(true);
 
@@ -29,10 +28,19 @@ public class GUI extends JPanel{
         frame.add(boardPanel);
         frame.setVisible(true);
     }
-    public void setPlayer1Ships (int ships) {
-        player1Ships = ships;
+    public JFrame getFrame(){
+        return frame;
     }
-    public void setAIShips (int ships) {
-        AIShips = ships;
+    public JLabel getTextLabel(){
+        return textLabel;
+    }
+    public JPanel getTextPanel(){
+        return textPanel;
+    }
+    public JPanel getBoardPanel(){
+        return boardPanel;
+    }
+    public void setWinner(String winner) {
+        this.winner = winner;
     }
 }
