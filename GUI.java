@@ -7,11 +7,11 @@ public class GUI extends JPanel implements MouseListener {
     private String winner = "-";
     private int player1Ships = 0;
     private int AIShips = 0;
-    private JFrame frame = new JFrame("Battleship");
-    private JLabel textLabel = new JLabel();
-    private JPanel textPanel = new JPanel();
-    JPanel buttonPanel = new JPanel();
-    public GUI(String username){
+    JFrame frame = new JFrame("Battleship");
+    JLabel textLabel = new JLabel();
+    JPanel textPanel = new JPanel();
+    JButton buttonPanel = new JButton();
+    public GUI(String username, int gridSize, int numButton){
         frame.setSize(800, 825);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,61 +26,39 @@ public class GUI extends JPanel implements MouseListener {
         frame.add(textPanel, BorderLayout.NORTH);
 
 
-        buttonPanel.setLayout(new GridLayout(5, 5));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
-        buttonPanel.add(new JButton(""));
+        buttonPanel.setLayout(new GridLayout(gridSize, gridSize));
+        for (int i = 0; i < numButton; i++) {
+            buttonPanel.add(new JButton(""));
+        }
         frame.add(buttonPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
 
         addMouseListener(this);
     }
+
     public JFrame getFrame(){
         return frame;
     }
     public JLabel getTextLabel(){
         return textLabel;
     }
-    public JPanel getButtonPanel(){
+    public JButton getButtonPanel(){
         return buttonPanel;
     }
     public void setWinner(String winner) {
         this.winner = winner;
     }
-
-
     @Override
     public void mouseClicked(MouseEvent e) {
         //left click
         if(e.getButton() == MouseEvent.BUTTON1){
-
+            buttonPanel.setText("\uD83D\uDEA9");
+            frame.add(buttonPanel);
         }
         //right click
         if(e.getButton() == MouseEvent.BUTTON2){
-
+            buttonPanel.setText(" ");
         }
     }
 
@@ -98,4 +76,5 @@ public class GUI extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
     }
+
 }

@@ -1,13 +1,10 @@
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-
-public class Player extends GameCode {
+public class Player extends GUI {
     private int ships = 7;
     public Player() {
-        GUI playerPanel = new GUI("Player 1");
+        super("Player 1", 10, 100);
     }
     public int getShips(){
         return ships;
+
     }
 }
