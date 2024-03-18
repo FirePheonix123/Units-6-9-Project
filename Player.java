@@ -1,10 +1,13 @@
-import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class Player {
-    private int ships = 3;
-    public Player(){
+public class Player extends GameCode {
+    private int ships = 7;
+    public Player() {
         GUI playerPanel = new GUI("Player 1");
     }
-    public void setPlayerShips(){
+    public int getShips(){
+        return ships;
     }
 }

@@ -1,13 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-public class GUI extends JPanel{
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class GUI extends JPanel implements MouseListener {
     private String winner = "-";
     private int player1Ships = 0;
     private int AIShips = 0;
     private JFrame frame = new JFrame("Battleship");
     private JLabel textLabel = new JLabel();
     private JPanel textPanel = new JPanel();
-    private JPanel boardPanel = new JPanel();
+    JPanel buttonPanel = new JPanel();
     public GUI(String username){
         frame.setSize(800, 825);
         frame.setResizable(false);
@@ -18,21 +21,42 @@ public class GUI extends JPanel{
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setText(username);
         textLabel.setOpaque(true);
-        textPanel.setLayout(new BorderLayout());
+       // textPanel.setLayout(new BorderLayout());
         textPanel.add(textLabel);
         frame.add(textPanel, BorderLayout.NORTH);
 
-        boardPanel.setLayout(new GridLayout(8, 8));
-        frame.add(new JButton("1"));
-        frame.add(new JButton("2"));
-        frame.add(new JButton("3"));
-        frame.add(new JButton("4"));
-        frame.add(new JButton("5"));
-        frame.add(new JButton("6"));
-        frame.add(new JButton("7"));
-        frame.add(new JButton(""));
+
+        buttonPanel.setLayout(new GridLayout(5, 5));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        buttonPanel.add(new JButton(""));
+        frame.add(buttonPanel, BorderLayout.CENTER);
 
         frame.setVisible(true);
+
+        addMouseListener(this);
     }
     public JFrame getFrame(){
         return frame;
@@ -40,13 +64,38 @@ public class GUI extends JPanel{
     public JLabel getTextLabel(){
         return textLabel;
     }
-    public JPanel getTextPanel(){
-        return textPanel;
-    }
-    public JPanel getBoardPanel(){
-        return boardPanel;
+    public JPanel getButtonPanel(){
+        return buttonPanel;
     }
     public void setWinner(String winner) {
         this.winner = winner;
+    }
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        //left click
+        if(e.getButton() == MouseEvent.BUTTON1){
+
+        }
+        //right click
+        if(e.getButton() == MouseEvent.BUTTON2){
+
+        }
+    }
+
+    public void mousePressed(MouseEvent e){
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
 }
