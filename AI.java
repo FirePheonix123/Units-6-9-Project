@@ -1,15 +1,14 @@
 import java.awt.*;
 
 
-public class AI extends GUI  {
+public class AI extends Player  {
     private int numShips = 5;
     private int gridSize = 10;
-    Player player = new Player(true);
     Ships ship[][] = new Ships[gridSize][gridSize];
 
     public AI(String username) {
-        super(username, 800);
-        buttonPanel.setLayout(new GridLayout(gridSize, gridSize));
+        GUI gui = new GUI(username, 800);
+        gui.buttonPanel.setLayout(new GridLayout(gridSize, gridSize));
         setShips();
         for (int r = 0; r < gridSize; r++) {
             for (int c = 0; c < gridSize; c++) {
@@ -21,11 +20,11 @@ public class AI extends GUI  {
         for (int r = 0; r < gridSize; r++) {
             for (int c = 0; c < gridSize; c++) {
                 ship[r][c].addMouseListener(this);
-                buttonPanel.add(ship[r][c]);
+                gui.buttonPanel.add(ship[r][c]);
             }
         }
-        frame.add(buttonPanel, BorderLayout.CENTER);
-        frame.setVisible(true);
+        gui.frame.add(gui.buttonPanel, BorderLayout.CENTER);
+        gui.frame.setVisible(true);
     }
     public void setShips(){
         for(int i = 0; i < numShips; i ++){
