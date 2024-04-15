@@ -3,10 +3,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
 
-public class Player {
+public class Player implements MouseListener{
     private int gridSize = 10;
     Ships ship[][] = new Ships[gridSize][gridSize];
-    public Player() implements MouseListener {
+    public Player()  {
         GUI gui = new GUI("Player 1", 800);
         gui.buttonPanel.setLayout(new GridLayout(gridSize, gridSize));
         for (int r = 0; r < gridSize; r++) {
